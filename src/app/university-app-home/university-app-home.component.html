@@ -1,0 +1,40 @@
+<h1>University Application</h1>
+ <div class="form-group">
+    <label for="universityName">University Name</label>
+ <input type="text" class="form-control" [(ngModel)]="name">
+</div> 
+<div class="form-group">
+    <label for="universityAddress">University Address</label>
+ <input type="text" class="form-control" [(ngModel)]="address">
+</div>
+<div class="form-group">
+    <label for="universityPhone">University Phone Number</label>
+ <input type="text" class="form-control" [(ngModel)]="phone">
+</div>
+<div class="form-group btn-toolbar">
+    <button type="submit" class="btn btn-warning mr-2" (click)="saveUniversity()"> Save</button>
+    <button type="submit"class="btn btn-warning ml-2" (click)="removeUniversity()"> Delete</button>
+</div>
+<div class="form-group">
+    <label for="universityName">Search University by Name</label>
+ <input type="text" class="form-control" [(ngModel)]="search_name">
+</div>
+<div class="form-group btn-toolbar">
+    <button type="submit" class="btn btn-warning mr-2" (click)="searchUniversity()"> Search</button>
+    <button type="submit" class="btn btn-warning mr-2" (click)="searchAllUniversity()"> Display Universities</button>
+</div>
+
+<div *ngIf="data.length">
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Phone</th>
+    </tr>
+    <tr *ngFor="let universityData of data">
+        <td>{{universityData.name}}</td>
+        <td>{{universityData.address}}</td>
+        <td>{{universityData.phone}}</td>
+    </tr>
+</table>
+</div>
